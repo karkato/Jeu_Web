@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<title>Test_End</title>
+	</head>
+	
+	<body>
+		<canvas id="canvas" width="1000" height="100" style="border:5px solid #d3d3d3;"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+									  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+		var i=0;
+		var rotation=17;
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var image = new Image();
+		image.src = "coin-sprite-animation.png";
+		image.onload = requestAnimationFrame(step);
+		function step() {
+			//Reboot
+			if(i>9) {i=0;}
+			ctx.clearRect(0,0,1000,500);
+			ctx.drawImage(image,100*i,0,100,100,100,0,100,100);
+			i++;
+			setTimeout(function(){ID = requestAnimationFrame(step);},1000/rotation-1000/60);
+			
+		}
+	</script>
+</html>

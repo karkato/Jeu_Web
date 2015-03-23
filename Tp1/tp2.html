@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+	
+	</head>
+	<script>
+	var tmp;
+	var chrono=10;
+	var a;
+	function timer(){
+		tmp =setInterval(cmp,1000);
+	}
+	function stoptimer(){
+	clearInterval(tmp)
+	}
+	var left=0;
+	function move(){
+	var elem = document.getElementById("carre");
+	elem.style.left =(left+=10)+"px";
+	}
+	function cmp(){
+	
+	var min = document.getElementById("compteur");
+	move();
+	chrono--;
+	if(chrono <0) stoptimer();
+		
+	}
+	</script>
+	<body onload="timer();">
+		<div id="compteur">
+		</div>
+		<div id="carre"></div>
+		
+	</body>
+</html>

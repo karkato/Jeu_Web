@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+	</head>
+	<script>
+	
+	var left = 0;
+	var timer;
+	var dateex=new Date();
+	var delay=0;
+	// Move the element 10px on the right every 16ms
+	function affichage(){
+		var now= new Date();
+		delay =now-dateex;
+		dateex=now;
+	}
+	timer = setInterval(function() {
+		var elem = document.getElementById("step");
+		elem.style.left = ( left += delay/100) + "px";
+		// clear the timer at 400px to stop the animation
+		if ( left > 400 ) {
+			clearInterval( timer );
+		}
+
+	}, 17)
+	function pausecomp(millis) 
+		{
+			var date = new Date();
+			var curDate = null;
+			do { 
+				curDate = new Date(); 
+			} while(curDate-date < millis);
+		} 
+		requestAnimationFrame(affichage);
+	
+	
+	</script>
+	<body>
+	<div id="step"></div>
+	</body>
+</html>

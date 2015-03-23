@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	</head>
+	<script>
+	var tmp;
+	var chrono=10;
+	var a;
+	function timer(){
+		tmp =setInterval(cmp,1000);
+	}
+	function stoptimer(){
+	clearInterval(tmp)
+	}
+	function cmp(){
+	var min = document.getElementById("compteur");
+	min.innerHTML=chrono;
+	a=10-chrono;
+	chrono--;
+	if(chrono <0) stoptimer();
+		
+	}
+	</script>
+	<body onload="timer();">
+		<div id="compteur">
+		</div>
+		
+	</body>
+</html>

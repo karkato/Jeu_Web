@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title> Events </title>
+    </head>
+    <body>
+	<canvas id="canvas" width="1000" height="500" style="border:5px solid #d3d3d3;"></canvas>
+    </body>
+<script type="text/javascript">
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+									  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+   		var i=0;
+		var j=0;
+		var rotation=17;
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		var image = new Image();
+		image.src = "hero_walk.png";
+		image.onload = requestAnimationFrame(draw);
+		function draw() {
+			if(i>5) {i=0;}
+			ctx.clearRect(10*j,0,100,100);
+			ctx.drawImage(image,128*i,128*1,128,128,10*j,0,100,100);
+			j++;
+			i++;
+			setTimeout(function(){ID = requestAnimationFrame(draw);},10000/rotation-1000/60);
+			
+		
+		}
+window.addEventListener("keydown", function (event) {
+  if (event.defaultPrevented) {
+    return; // Should do nothing if the key event was already consumed.
+  }
+
+  switch (event.key) {
+    case "ArrowDown":
+      // Do something for "down arrow" key press.
+          alert("ArrowDown");
+      break;
+    case "ArrowUp":
+      // Do something for "up arrow" key press.
+      break;
+    case "ArrowLeft":
+      // Do something for "left arrow" key press.
+      break;
+    case "ArrowRight":
+      // Do something for "right arrow" key press.
+      break;
+    case "Enter":
+      // Do something for "enter" or "return" key press.
+      break;
+    case "Escape":
+      // Do something for "esc" key press.
+      break;
+    default:
+      return; // Quit when this doesn't handle the key event.
+  }
+
+  // Consume the event for suppressing "double action".
+  event.preventDefault();
+}, true);
+    </script>

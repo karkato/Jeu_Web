@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	<link type="text/css" rel="stylesheet" href="stylesheet.css" />
+	
+	</head>
+	<script>
+	var tmp;
+	var chrono=24;
+	var a;
+	function timer(){
+		tmp =setInterval(cmp,1000);
+	}
+	function stoptimer(){
+	clearInterval(tmp)
+	}
+	var left=0;
+	function move0(){
+	var elem = document.getElementById("step0");
+	elem.style.left =(left+=20)+"px";
+	}
+	function move1(){
+	var elem = document.getElementById("step1");
+	elem.style.left =(left-5)+"px";
+	}
+	function move2(){
+	var elem = document.getElementById("step2");
+	elem.style.left =(left-10)+"px";
+	}
+	function move3(){
+	var elem = document.getElementById("step3");
+	elem.style.left =(left-15)+"px";
+	}
+	function move4(){
+	var elem = document.getElementById("step4");
+	elem.style.left =(left-20)+"px";
+	}
+	function move5(){
+	var elem = document.getElementById("step5");
+	elem.style.left =(left-25)+"px";
+	}
+	function move6(){
+	var elem = document.getElementById("step6");
+	elem.style.left =(left-30)+"px";
+	}
+	function move7(){
+	var elem = document.getElementById("step7");
+	elem.style.left =(left-35)+"px";
+	}
+	function move8(){
+	var elem = document.getElementById("step8");
+	elem.style.left =(left-40)+"px";
+	}
+	function move9(){
+	var elem = document.getElementById("step9");
+	elem.style.left =(left-45)+"px";
+	}
+	function cmp(){
+	
+	var min = document.getElementById("compteur");
+	chrono--;
+	if(chrono<21)move0();
+	if(chrono<20)move1();
+	if(chrono<19)move2();
+	if(chrono<18)move3();
+	if(chrono<17)move4();
+	if(chrono<16)move5();
+	if(chrono<15)move6();
+	if(chrono<14)move7();
+	if(chrono<13)move8();
+	if(chrono<12)move9();
+	if(chrono <0) stoptimer();
+		
+	}
+	</script>
+	<body onload="timer();">
+		<div id="compteur">
+		</div>
+		<div id="step0">
+		</div>
+		<div id="step1">
+		</div>
+		<div id="step2">
+		</div>
+		<div id="step3">
+		</div>
+		<div id="step4">
+		</div>
+		<div id="step5">
+		</div>
+		<div id="step6">
+		</div>
+		<div id="step7">
+		</div>
+		<div id="step8">
+		</div>
+		<div id="step9">
+		</div>
+		
+		
+	</body>
+</html>
