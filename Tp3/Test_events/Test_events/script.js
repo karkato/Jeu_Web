@@ -1,10 +1,8 @@
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
-var dateDernierFrame = new Date(); //Variable permettant de mesurer le temps écoulé entre deux frames.
-var dateDernierAnim = new Date(); //Variable permettant de mesurer s'il est temps de faire avancer l'animation.
-
-//Tableau/Objet contenant des informations sur l'ensemble des touches appuyées entre deux iterations de la boucle de jeu.
+var dateDernierFrame = new Date(); 
+var dateDernierAnim = new Date(); 
 var keys = {
 	up:false,
 	down:false,
@@ -53,10 +51,6 @@ function drawScreen(){
 function moveCharacter(){
 	var now = new Date();	
 	var delay = now - dateDernierFrame;
-	
-	//En fonction de la direction du personnage, on définit quelle ligne de sprite utiliser pour l'animation.
-	//On modifie aussi la position du personnage en fonction du temps écoulé entre deux appels, soit le temps entre deux frames.
-	//Si le personnage s'apprête à dépasser le cadre du jeu, on ne modifie pas la position, on arrête le déplacement.
 	switch(character.direction) {
 		case "up":
 			character.animationStepY=3;
@@ -81,9 +75,6 @@ function moveCharacter(){
 		default:
 			character.direction=false;
 	}
-	
-	//Si le personnage se déplace, il faut aussi faire évoluer la colonne de sprite à utiliser.
-	//Ce changement se fait à intervalle constant, ici 200ms.
 	if(character.direction!=false){
 		var now = new Date();	
 		var delayFrame = now - dateDernierAnim;
