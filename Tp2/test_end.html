@@ -11,6 +11,7 @@
 		window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
 									  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 		var i=0;
+		var j=0;
 		var rotation=17;
 		var canvas = document.getElementById("canvas");
 		var ctx = canvas.getContext("2d");
@@ -20,9 +21,12 @@
 		function step() {
 			//Reboot
 			if(i>9) {i=0;}
+			if(j>100){j=0};
 			ctx.clearRect(0,0,1000,500);
-			ctx.drawImage(image,100*i,0,100,100,100,0,100,100);
+			ctx.drawImage(image,100*i,0,100,100,10*j,0,100,100);
 			i++;
+			j++; 
+			
 			setTimeout(function(){ID = requestAnimationFrame(step);},1000/rotation-1000/60);
 			
 		}
