@@ -1,3 +1,6 @@
+//Modification à venir : Gerer deux personnage au lieu d'un .
+//Ajout du controle grâce a la souris
+
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 
